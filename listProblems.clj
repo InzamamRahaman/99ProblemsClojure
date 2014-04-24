@@ -83,6 +83,12 @@
     (rotate-helper xs n (fn [xs n] n))
     (rotate-helper xs n (fn [xs n] (+ n (count xs))))))
 
+(defn remove-at [k xs]
+  (let [new-head (take (- k 1) xs) new-tail (drop k xs)]
+    (concat new-head new-tail)))
+
+(remove-at 2 (list 1 2 3 4 4))
+
 
 
 
