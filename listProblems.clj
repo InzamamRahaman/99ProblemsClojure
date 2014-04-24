@@ -74,6 +74,14 @@
 (defn my-slice [xs start end]
   (->> xs (drop start) (take (+ (- end start) 1))))
 
+(defn rotate-helper [xs n endF]
+  (let [end (endF xs n) parted (partition end xs) [h & t] parted]
+    (concat (first t) h)))
+
+(defn rotate [xs n]
+  (if (pos? n)
+    (rotate-helper xs n (fn [xs n] n))
+    (rotate-helper xs n (fn [xs n] (+ n (count xs))))))
 
 
 
