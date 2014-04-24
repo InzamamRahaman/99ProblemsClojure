@@ -62,6 +62,19 @@
 (defn decode [xs]
   (->> xs (map explode-encoding)))
 
+(defn my-replicate [n xs]
+  (->> xs (collect (partial repeat n))))
+
+(defn duplicate [xs]
+  (->> xs (my-replicate 2)))
+
+(defn my-drop [n xs]
+  (->> xs (partition n) (collect (partial take (- n 1)))))
+
+(defn my-slice [xs start end]
+  (->> xs (drop start) (take (+ (- end start) 1))))
+
+
 
 
 
