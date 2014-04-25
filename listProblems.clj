@@ -87,7 +87,11 @@
   (let [new-head (take (- k 1) xs) new-tail (drop k xs)]
     (concat new-head new-tail)))
 
-(remove-at 2 (list 1 2 3 4 4))
+(defn insert-at [elem n xs]
+  (let [parted (partition n xs) [head & tail] parted]
+    (apply concat head (list elem) tail) ))
+
+
 
 
 
