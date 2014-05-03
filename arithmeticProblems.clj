@@ -11,3 +11,8 @@
      (empty? (filter #(= 0 (mod n %1)) (range 5 (inc (Math/ceil (Math/sqrt n))) 2))) true
      :else false))
 
+(defn gcd [x y]
+  (loop [a x b y]
+    (if (= b 0)
+      a
+      (recur b (mod a b)))))
