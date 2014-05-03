@@ -44,3 +44,8 @@
   (let [factors (conj (conj (range 5 (inc (/ n 2)) 2) 3) 2)]
     (filter (fn [x] (and (= 0 (mod n x)) (is-prime x)) ) factors)))
 
+(defn all-primes [lo hi]
+  (filter is-prime (range lo hi)))
+
+
+
