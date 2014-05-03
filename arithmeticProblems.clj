@@ -16,3 +16,6 @@
     (if (= b 0)
       a
       (recur b (mod a b)))))
+
+(defn is-coprime [a b]
+  (= (gcd a b) 1))
