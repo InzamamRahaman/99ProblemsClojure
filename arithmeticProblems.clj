@@ -19,3 +19,7 @@
 
 (defn is-coprime [a b]
   (= (gcd a b) 1))
+
+(defn totient-naive [n]
+  (count (filter (partial is-coprime n) (range 1 n))))
+
