@@ -38,4 +38,9 @@
   (let [factors (conj (conj (get-extra-factors n) 3) 2)]
     (reduce #(remove-factor %1 %2) n factors)))
 
+;; Code to get all prime factors
+
+(defn prime-factors [n]
+  (let [factors (conj (conj (range 5 (inc (/ n 2)) 2) 3) 2)]
+    (filter (fn [x] (and (= 0 (mod n x)) (is-prime x)) ) factors)))
 
